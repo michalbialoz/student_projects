@@ -8,26 +8,34 @@ int main() {
 
     while (true) {
         cout << "Podaj przebytą odległość (km): ";
-        cin >> distance;
+        if (!(cin >> distance)) {
+            cout << "Nieprawidłowe dane wejściowe. Wprowadź liczbę." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
 
         if (distance <= 0) {
             cout << "Odległość nie może być ujemna ani równa 0. Spróbuj ponownie." << endl;
             continue;
         }
+
         break;
     }
-    while (true){
+    while (true) {
         cout << "Podaj ilość zużytego paliwa (l): ";
-        cin >> fuel;
+        if (!(cin >> fuel)) {
+            cout << "Nieprawidłowe dane wejściowe. Wprowadź liczbę." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
 
-        if (fuel < 0) {
-            cout << "Ilość paliwa nie może być ujemna. Spróbuj ponownie." << endl;
+        if (fuel <= 0) {
+            cout << "Ilość paliwa nie może być ujemna ani równa 0. Spróbuj ponownie." << endl;
             continue;
         }
-        if (fuel == 0) {
-            cout << "Brak paliwa. Spróbuj ponownie." << endl;
-            continue;
-        }
+
         break;
     }
 
